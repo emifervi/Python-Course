@@ -64,7 +64,10 @@ def win_check(board, mark):
 
     while i < len(board):
            #------------Check rows--------------|-------------Check columns-------------|--------Check main diagonal--------|-------Check inverse diagonal-----|
-        if [board[i],board[i+1],board[i+2]] == [mark,mark,mark] or [board[j],board[j+3],board[j+6]] == [mark,mark,mark] or [board[1],board[5],board[9]] == [mark,mark,mark] or [board[3],board[5],board[7]] == [mark,mark,mark]:
+        if (board[i]==board[i+1]==board[i+2]==mark or \
+            board[j]==board[j+3]==board[j+6]==mark or \
+            board[1]==board[5]==board[9]==mark or \
+            board[3]==board[5]==board[7]==mark):
             won = True 
     
         # Update counters
