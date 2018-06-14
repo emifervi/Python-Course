@@ -56,25 +56,23 @@ def win_check(board, mark):
     INPUTS: A list that represents the board and a marker
     RETURNS: Boolean to check if a player won
     '''
-
-    # Start at false and at 1 each counter
-    won = False
     i = 1 # Rows
     j = 1 # Columns
 
+    #----------Check main diagonal---------|-------Check inverse diagonal-------
+    if board[1]==board[5]==board[9]==mark or board[3]==board[5]==board[7]==mark:
+        return True
+        
     while i < len(board):
-           #------------Check rows--------------|-------------Check columns-------------|--------Check main diagonal--------|-------Check inverse diagonal-----|
-        if (board[i]==board[i+1]==board[i+2]==mark or \
-            board[j]==board[j+3]==board[j+6]==mark or \
-            board[1]==board[5]==board[9]==mark or \
-            board[3]==board[5]==board[7]==mark):
-            won = True 
+        #------------------Check rows--------------|-------------Check columns--------------
+        if board[i]==board[i+1]==board[i+2]==mark or board[j]==board[j+3]==board[j+6]==mark:
+            return True
     
         # Update counters
         i += 3
         j += 1
-
-    return won
+    
+    return False
 
 
 import random
